@@ -1,0 +1,369 @@
+.Movie-detail-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #0b0d12;
+  color: #f5f5f7;
+}
+
+.Movie-detail-backdrop {
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(76vh, 760px);
+  background-color: #151923;
+  background-position: center 28%;
+  background-size: cover;
+  opacity: 0.42;
+  -webkit-mask-image: linear-gradient(#000 0%, transparent 96%);
+  mask-image: linear-gradient(#000 0%, transparent 96%);
+}
+
+.Movie-detail-backdrop::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, #0b0d12 0%, rgba(11, 13, 18, 0.35) 55%, #0b0d12 100%),
+    linear-gradient(0deg, #0b0d12 0%, transparent 70%);
+}
+
+.Movie-detail-content {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 32px clamp(18px, 5vw, 64px) 72px;
+}
+
+.Movie-detail-back-button {
+  min-height: 42px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(14, 16, 24, 0.66);
+  color: #f5f5f7;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.Movie-detail-back-button:hover {
+  transform: translateX(-2px);
+  border-color: #a394ff;
+  background: rgba(44, 39, 75, 0.86);
+}
+
+.Movie-detail-back-button:focus-visible,
+.Movie-detail-message button:focus-visible {
+  outline: 3px solid #c4baff;
+  outline-offset: 3px;
+}
+
+.Movie-detail-back-button span {
+  color: #c4baff;
+  font-size: 18px;
+}
+
+.Movie-detail-hero {
+  min-height: 440px;
+  padding: 68px 0 48px;
+  display: grid;
+  grid-template-columns: minmax(190px, 270px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 72px);
+}
+
+.Movie-detail-poster {
+  width: 100%;
+  display: block;
+  aspect-ratio: 2 / 3;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: #202536;
+  object-fit: cover;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.55);
+}
+
+.Movie-detail-poster-empty {
+  display: grid;
+  place-items: center;
+  color: #c4baff;
+  font-size: 52px;
+}
+
+.Movie-detail-summary {
+  min-width: 0;
+  padding: 24px 0;
+}
+
+.Movie-detail-eyebrow {
+  color: #b5aaff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.Movie-detail-summary h1 {
+  margin: 12px 0 0;
+  font-size: clamp(34px, 6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -2px;
+  text-wrap: balance;
+}
+
+.Movie-detail-original-title {
+  margin: 10px 0 0;
+  color: #adb3c5;
+  font-size: 14px;
+}
+
+.Movie-detail-tagline {
+  margin: 16px 0 0;
+  color: #c8c2e6;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.Movie-detail-genres {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.Movie-detail-genres span {
+  padding: 7px 11px;
+  border: 1px solid rgba(196, 186, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(139, 124, 255, 0.12);
+  color: #e3dfff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Movie-detail-rating {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.Movie-detail-rating > span:first-child {
+  color: #ffc247;
+  font-size: 25px;
+  text-shadow: 0 0 18px rgba(255, 194, 71, 0.38);
+}
+
+.Movie-detail-rating strong {
+  font-size: 22px;
+}
+
+.Movie-detail-vote-count {
+  margin-left: 3px;
+  color: #aab0c0;
+  font-size: 12px;
+}
+
+.Movie-detail-information {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+  gap: clamp(28px, 5vw, 64px);
+  border: 1px solid rgba(164, 148, 255, 0.18);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(28, 33, 48, 0.88), rgba(17, 21, 31, 0.94));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+.Movie-detail-overview h2 {
+  margin: 9px 0 13px;
+  font-size: 23px;
+  letter-spacing: -0.5px;
+}
+
+.Movie-detail-overview > p {
+  margin: 0;
+  color: #c3c7d2;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.Movie-detail-facts {
+  margin: 0;
+  display: grid;
+  align-content: start;
+  gap: 0;
+}
+
+.Movie-detail-facts > div {
+  padding: 11px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.Movie-detail-facts > div:first-child {
+  padding-top: 0;
+}
+
+.Movie-detail-facts dt {
+  color: #9299ad;
+  font-size: 12px;
+}
+
+.Movie-detail-facts dd {
+  margin: 0;
+  color: #ececf4;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.Movie-detail-message {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.Movie-detail-spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid rgba(196, 186, 255, 0.2);
+  border-top-color: #a394ff;
+  border-radius: 50%;
+  animation: Movie-detail-spin 800ms linear infinite;
+}
+
+.Movie-detail-message-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 111, 145, 0.15);
+  color: #ff9ab0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.Movie-detail-message h1 {
+  max-width: 480px;
+  margin: 0;
+  font-size: clamp(20px, 4vw, 28px);
+}
+
+.Movie-detail-message button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #8b7cff;
+  border-radius: 11px;
+  background: #302b55;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes Movie-detail-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .Movie-detail-content {
+    padding: 20px 18px 44px;
+  }
+
+  .Movie-detail-hero {
+    min-height: 0;
+    padding: 40px 0 32px;
+    grid-template-columns: minmax(100px, 34%) minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+  }
+
+  .Movie-detail-poster {
+    border-radius: 12px;
+  }
+
+  .Movie-detail-summary {
+    padding: 4px 0 0;
+  }
+
+  .Movie-detail-summary h1 {
+    font-size: clamp(26px, 8vw, 40px);
+    letter-spacing: -1px;
+  }
+
+  .Movie-detail-tagline {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  .Movie-detail-genres {
+    margin-top: 14px;
+    gap: 6px;
+  }
+
+  .Movie-detail-genres span {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .Movie-detail-rating {
+    margin-top: 16px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .Movie-detail-rating > span:first-child {
+    font-size: 20px;
+  }
+
+  .Movie-detail-rating strong {
+    font-size: 18px;
+  }
+
+  .Movie-detail-vote-count {
+    width: 100%;
+    margin-left: 26px;
+  }
+
+  .Movie-detail-information {
+    padding: 21px 18px;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    border-radius: 16px;
+  }
+
+  .Movie-detail-overview h2 {
+    font-size: 20px;
+  }
+
+  .Movie-detail-overview > p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Movie-detail-spinner,
+  .Movie-detail-back-button {
+    animation: none;
+    transition: none;
+  }
+}
